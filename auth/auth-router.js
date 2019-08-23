@@ -9,7 +9,9 @@ const restricted = require('./authenticate-middleware.js');
 router.post('/register', async (req, res) => {
   // implement registration
   let user = req.body;
-  user.password = bcrypt.hashSync(user.password, 10);
+  // user.password = bcrypt.hashSync(user.password, 10);
+  const hash = bcrypt.hashSync(user.password, 10);
+  user.password = hash;
   try {
     const newUser = await Users.add(user);
     res.status(201).json(newUser);
