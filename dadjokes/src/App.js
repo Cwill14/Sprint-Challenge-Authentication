@@ -14,7 +14,6 @@ function App() {
       <Route exact path="/" component={Login} />
       <Route path="/register" component={Register} />
       <PrivateRoute path="/jokes" component={Jokes} />
-
     </div>
   );
 }
